@@ -58,8 +58,9 @@ class IArea(model.Schema):
         required=False,
         default="",
     )
-    estado = schema.TextLine(
+    estado = schema.Choice(
         title=_("Estado"),
+        vocabulary="tremt.intranet.vocabulary.estados",
         required=False,
     )
     cep = schema.TextLine(
@@ -71,3 +72,4 @@ class IArea(model.Schema):
 
 @implementer(IArea)
 class Area(Container):
+    """Uma Área no TRE-MT."""
